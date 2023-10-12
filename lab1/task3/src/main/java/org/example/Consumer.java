@@ -1,26 +1,22 @@
 package org.example;
 
-import org.example.Buffer;
-
 import static org.example.Main.ILOSC;
 
 public class Consumer implements Runnable {
     private Buffer buffer;
+    private int id;
 
-    public Consumer(Buffer buffer) {
+    public Consumer(int id, Buffer buffer) {
         this.buffer = buffer;
+        this.id = id;
     }
 
     public void run() {
 
-        for(int i = 0;  i < ILOSC;   i++) {
-            try {
-                String message = buffer.take();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        for(int i = 0; i < ILOSC; i++) {
+            String message = buffer.take();
+            System.out.println("[Consumer id: " + id + "] " +message);
         }
-        System.out.println("Consumer finished");
 
     }
 }

@@ -1,27 +1,22 @@
 package org.example;
 
-import org.example.Buffer;
-
-import static org.example.Main.ILOSC;
-
 public class Producer implements Runnable {
     private Buffer buffer;
 
-    public Producer(Buffer buffer) {
+    private int id;
+
+    public Producer(int id, Buffer buffer) {
         this.buffer = buffer;
+        this.id = id;
     }
 
     public void run() {
 
-        for(int i = 0;  i < ILOSC;   i++) {
-            try {
-                buffer.put("message " + i);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        for(int i = 0; i < Main.ILOSC; i++) {
 
-        System.out.println("Producer finished.");
+            buffer.put("Message id: " + i);
+            System.out.println("[Producer id: " + this.id + "] Sending message " + i);
+        }
 
     }
 }

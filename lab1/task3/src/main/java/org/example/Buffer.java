@@ -1,31 +1,33 @@
 package org.example;
 
 public class Buffer {
-
-    private boolean empty = true;
     private String message;
+    private boolean isEmpty = true;
 
-
-    public synchronized void put(String string) throws InterruptedException {
-        while(!this.empty){
-            this.wait();
+    public synchronized void put(String message) {
+        while (!isEmpty) {
+            try {
+                wait(); // Oczekuj, jeśli bufor jest pełny
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
-        this.empty = false;
-        this.message = string;
-        System.out.println("Buffer is full");
-        this.notifyAll();
-
+        this.message = message;
+        isEmpty = false;
+        notifyAll(); // Powiadom konsumenta, że bufor jest teraz pełny
     }
 
-    public synchronized String take() throws InterruptedException {
-        while(empty){
-            this.wait();
+    public synchronized String take() {
+        while (isEmpty) {
+            try {
+                wait(); // Oczekuj, jeśli bufor jest pusty
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
         }
-        empty = true;
-        System.out.println("buffer clear");
-        this.notifyAll();
-        return message;
-
-
+        String takenMessage = message;
+        isEmpty = true;
+        notifyAll(); // Powiadom producenta, że bufor jest teraz pusty
+        return takenMessage;
     }
 }

@@ -1,37 +1,28 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Main {
-
-    public static int ILOSC = 100;
-    public static int PRODUCERS = 5;
-    public static int CONSUMERS = 5;
+public class Main{
+    static int ILOSC = 5; // Zdefiniuj liczbę wiadomości do wyprodukowania i skonsumowania
+    static int ILOSCWATKOW = 5;
 
     public static void main(String[] args) {
         Buffer buffer = new Buffer();
-        List<Thread> list = new ArrayList<>();
+        Thread[] consumerThreads = new Thread[ILOSCWATKOW];
+        Thread[] producerThreads = new Thread[ILOSCWATKOW];
 
-        for (int i = 0; i < PRODUCERS; i++){
-            Thread thread = new Thread(new Producer(buffer));
-            list.add(thread);
-            thread.start();
+        for (int i = 0; i < ILOSC; i++ ) {
+            producerThreads[i] = new Thread(new Producer(i, buffer));
+            consumerThreads[i] = new Thread(new Consumer(i, buffer));
+            producerThreads[i].start();
+            consumerThreads[i].start();
         }
 
-        for (int i = 0; i < CONSUMERS; i++){
-            Thread thread = new Thread(new Consumer(buffer));
-            list.add(thread);
-            thread.start();
-        }
-
-
-        list.forEach(thread ->{
-            try{
-                thread.join();
-            }catch(InterruptedException e){
-                e.printStackTrace();
+        for (int i = 0; i < ILOSC; i++){
+            try {
+                producerThreads[i].join();
+                consumerThreads[i].join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
-        });
+        }
     }
 }
