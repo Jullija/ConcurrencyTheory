@@ -1,7 +1,7 @@
 package org.example;
 
 public class Main{
-    static int ILOSC = 5; // Zdefiniuj liczbę wiadomości do wyprodukowania i skonsumowania
+    static int ILOSC = 5;
     static int ILOSCWATKOW = 5;
 
     public static void main(String[] args) {
