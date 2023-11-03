@@ -1,44 +1,55 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Buffer {
+    private final List<ReentrantLock> locks = new ArrayList<>();
+    private final List<Condition> conditions = new ArrayList<>();
+    private final List<Integer> processIDs = new ArrayList<>(); // starts with -1 -1 -1 -1..
+    private final List<Data> pipeline = new ArrayList<>();
+    private final int size;
 
-    int[] array;
-    Condition[] conditions; //there will be condition for each
-    Lock lock;
-    public Buffer(int N){
-        array = IntStream.generate(() -> -1)
-                .limit(N)
-                .toArray();
-        lock = new ReentrantLock();
-        conditions = new Condition[N];
+    public Buffer(int size){
+        this.size = size;
+        IntStream.range(0, size).forEach(i -> {
+            pipeline.add(new Data(i, -1));
+            ReentrantLock lock = new ReentrantLock();
+            locks.add(lock);
+            conditions.add(lock.newCondition());
+            processIDs.add(-1);
+        });
     }
 
-    public void step(int proc_id){
-        while (true){
-            try {
-                lock.lock();
+    public int getSize(){
+        return this.size;
+    }
 
-                for (int i = 0; i < array.length; i++ ){
-                    switch (proc_id) {
-                        case array.length -> {
-                            if ()
-                        }
-                        default -> {
-                            while (array[i] != proc_id - 1){
-                                proc_id.await();
-                            }
-                        }
-                    }
-                }
+    public Data getData(int i, int prevID) throws InterruptedException {
+        locks.get(i).lock();
 
-            }finally{
-                lock.unlock();
-            }
+        while (processIDs.get(i) != prevID){
+            conditions.get(i).await();
         }
+
+        return pipeline.get(i);
     }
+
+
+    public void finishProcess(int i, int id){
+        processIDs.set(i, id);
+        conditions.get(i).signalAll();
+        locks.get(i).unlock();
+    }
+
+    public String getState(){
+        return pipeline.toString() + '\n' + processIDs;
+    }
+
+
 }
