@@ -7,11 +7,6 @@ import java.util.stream.IntStream;
 
 public class Main {
 
-    // id = 0 -> producer
-    // id = 1 -> consumer
-    // id > 1 -> processer
-
-
     public static void main(String[] args) {
         int processorsNum = 5;
         int bufferSize = 10;

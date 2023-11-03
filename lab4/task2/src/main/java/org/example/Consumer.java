@@ -22,6 +22,7 @@ public class Consumer implements Runnable{
             int rand = random.nextInt(M-1) + 1;
             try {
                 buffer.consume(id, rand);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

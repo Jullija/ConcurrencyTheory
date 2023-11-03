@@ -17,12 +17,14 @@ public class Producer implements Runnable{
     }
 
 
+
     @Override
     public void run() {
         while (true){
             int rand = random.nextInt(M-1) + 1;
             try {
                 buffer.produce(id, rand);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
