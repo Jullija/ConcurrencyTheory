@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Buffer {
+public class Buffer{
     private final List<ReentrantLock> locks = new ArrayList<>();
     private final List<Condition> conditions = new ArrayList<>();
     private final List<Integer> processIDs = new ArrayList<>(); // starts with -1 -1 -1 -1..
