@@ -10,3 +10,5 @@ Concurrency Theory course on AGH UST
 [Lab4](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab4) - [Producers and consumers](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab4/)
 
 [Lab5](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab5) - [Executor i Future](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab5/)
+
+[Lab6](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab6) - [Executor i Future](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab6/)
