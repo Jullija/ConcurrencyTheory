@@ -11,4 +11,4 @@ Concurrency Theory course on AGH UST
 
 [Lab5](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab5) - [Executor i Future](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab5/)
 
-[Lab6](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab6) - [Executor i Future](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab6/)
+[Lab6](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab6) - [Node.js basics](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab6/)
