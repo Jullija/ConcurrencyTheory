@@ -1,10 +1,11 @@
+const fs = require('fs');
 
 var Fork = function() {
     this.state = 0; //0 - free fork
     return this;
 }
 
-Fork.prototype.acquire = function(id, cb) { 
+Fork.prototype.acquire = function(N, id, cb) { 
     // zaimplementuj funkcje acquire, tak by korzystala z algorytmu BEB
     // (http://pl.wikipedia.org/wiki/Binary_Exponential_Backoff), tzn:
     // 1. przed pierwsza proba podniesienia widelca Filozof odczekuje 1ms
@@ -14,9 +15,13 @@ Fork.prototype.acquire = function(id, cb) {
 
     var waitingTime = 1; //waiting time
     var fork = this;
+    var sum = 0;
     var beb = function(){
         if (fork.state == 0){
             console.log("[PHILOSOPHER " + id + "] taken fork.")
+            sum += waitingTime;
+            var content = N + ",cond," + sum
+            fs.appendFileSync('data.csv', '\n' + content, 'utf-8');
             fork.state = 1;
             waitingTime = 1;
             if (cb) cb();
@@ -70,7 +75,7 @@ Philosopher.prototype.startNaive = function(count) {
 
 // --------------ASYMETRIC---------------
 
-Philosopher.prototype.startAsym = function(count) {
+Philosopher.prototype.startAsym = function(N, count) {
     var forks = this.forks,
         f1 = this.f1,
         f2 = this.f2,
@@ -93,13 +98,13 @@ Philosopher.prototype.startAsym = function(count) {
 
 
    if(count > 0){
-        forks[firstFork].acquire(id, function(){
-            forks[secondFork].acquire(id, function(){
+        forks[firstFork].acquire(N, id, function(){
+            forks[secondFork].acquire(N, id, function(){
                 console.log("[PHILOSPHER "+ id + "] starting meal with forks " + f1 + ", " + f2 +".");
                 forks[firstFork].release();
                 forks[secondFork].release();
                 console.log("[PHILOSPHER "+ id + "] released forks " + f1 + ", " + f2 +".");
-                philosopher.startAsym(count - 1);
+                philosopher.startAsym(N, count - 1);
             })
         })
 
@@ -139,7 +144,7 @@ Conductor.prototype.release = function(){
 }
 
 
-Philosopher.prototype.startConductor = function(count, conductor) {
+Philosopher.prototype.startConductor = function(N, count, conductor) {
     var forks = this.forks,
         f1 = this.f1,
         f2 = this.f2,
@@ -151,8 +156,8 @@ Philosopher.prototype.startConductor = function(count, conductor) {
 
     if (count > 0) {
         conductor.acquire(id, function () {
-            forks[f1].acquire(id, function () {
-                forks[f2].acquire(id, function () {
+            forks[f1].acquire(N, id, function () {
+                forks[f2].acquire(N, id, function () {
                     console.log("[PHILOSPHER "+ id + "] starting meal.");
                     forks[f1].release();
                     forks[f2].release();
@@ -166,7 +171,7 @@ Philosopher.prototype.startConductor = function(count, conductor) {
 }
 
 
-var N = 5;
+var N = 15;
 var forks = [];
 var philosophers = []
 var conductor = new Conductor(N - 1)
@@ -183,11 +188,11 @@ for (var i = 0; i < N; i++) {
 // }
 
 // for (var i = 0; i < N; i++) {
-//     philosophers[i].startAsym(10);
+//     philosophers[i].startAsym(N, 10);
 // }
 
 for (var i = 0; i < N; i++) {
-    philosophers[i].startConductor(2, conductor);
+    philosophers[i].startConductor(N, 10, conductor);
 }
 
 
