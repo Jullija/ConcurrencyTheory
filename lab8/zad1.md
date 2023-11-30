@@ -30,6 +30,7 @@ D (zależne): uzupełnienie
 
 Ślad: wszystkie słowa, które dadzą ten sam wynik. 
 
+```
 Ślad: [w] = {b, aaad, cb }
              b  ada   cb
              b  daa   cb
@@ -37,7 +38,7 @@ D (zależne): uzupełnienie
              b        bc
              b        bc
 
-
+```
 B jest zależne od a, więc nie możemy zamienić ich kolejnością.
 D jest niezależne od a, więc możemy je zamienić kolejnością.
 
