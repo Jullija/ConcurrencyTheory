@@ -13,17 +13,18 @@ Akcje możemy wykonywać współbieżnie z następującym zastrzeżeniem: akcja 
 
 
 
-Zadanie 1a 
-W alfabecie A = { a, b, c, d} określ relacje zależności i niezależności.
+## Zadanie 1a 
+### W alfabecie A = { a, b, c, d} określ relacje zależności i niezależności.
 
 I (niezależne): {(a, d), (d, a), (b, c), (c, b)}
+
 D (zależne): uzupełnienie
 
 
 
 
-Zadanie 1b
-Wyznacz ślad wyznaczony przez słowo w = b a a d c b względem powyższej relacji niezależności.
+## Zadanie 1b
+### Wyznacz ślad wyznaczony przez słowo w = b a a d c b względem powyższej relacji niezależności.
 
 Ślad: wszystkie słowa, które dadzą ten sam wynik. 
 
@@ -41,28 +42,28 @@ D jest niezależne od a, więc możemy je zamienić kolejnością.
 
 
 
-Zadanie 1c 
-Wyznacz postać normalną Foaty śladu [w] (algorytm z pracy Volker Diekert, Yves Métivier : Partial Commutation and Traces str 10)
+### Zadanie 1c 
+### Wyznacz postać normalną Foaty śladu [w] (algorytm z pracy Volker Diekert, Yves Métivier : Partial Commutation and Traces str 10)
 
 
 Algorytm: robimy kubełki na każdą literę. Bierzemy słowo, do którego mamy robić postać normalną i robimy to OD TYŁU. Jeśli jest b, wpisujemy do kubełka i sprawdzamy z czym jest zależne - przy nich piszemy gwiazdkę. Następnie sięgamy rzeczy (jeśli coś jest na wierzchu, ściągamy wszystko na raz i odpowiadające mu gwiazdki)
 
-
-*    |   b    |       |
-a    |   *    |   *   |   *
-a    |   *    |   *   |   d 
-*    |   *    |   *   |   *
-*    |   b    |   c   |   *
+```
+ *    |   b    |       |
+ a    |   *    |   *   |   *
+ a    |   *    |   *   |   d 
+ *    |   *    |   *   |   *
+ *    |   b    |   c   |   *
 --------------------------
-a.   |   b.   |   c.  |    d
+ a.   |   b.   |   c.  |    d
+
+```
 
 
 
 
-
-
-Pierwszy krok: (b)
-
+**Pierwszy krok: (b)**
+```
      |        |       |
 a    |   *    |   *   |    
 a    |   *    |   *   |   d 
@@ -70,6 +71,7 @@ a    |   *    |   *   |   d
 *    |   b    |   c   |   *
 --------------------------
 a.   |   b.   |   c.  |    d
+```
 
 
 
@@ -77,9 +79,8 @@ a.   |   b.   |   c.  |    d
 
 
 
-
-Drugi krok: (b) (a d)
-
+**Drugi krok: (b) (a d)**
+```
      |        |       |
      |        |       |    
 a    |   *    |   *   |   d 
@@ -96,14 +97,14 @@ a    |        |       |
 *    |   b    |   c   |   *
 --------------------------
 a.   |   b.   |   c.  |    d
+```
 
 
 
 
 
-
-Trzeci krok: (b) (a d) (a)
-
+**Trzeci krok: (b) (a d) (a)**
+```
      |        |       |
      |        |       |    
      |        |       |     
@@ -111,15 +112,15 @@ Trzeci krok: (b) (a d) (a)
 *    |   b    |   c   |   *
 --------------------------
 a.   |   b.   |   c.  |    d
+```
 
 
 
 
 
 
-
-Czwarty krok: (b) (a d) (a) (b c)
-
+**Czwarty krok: (b) (a d) (a) (b c)**
+```
      |        |       |
      |        |       |    
      |        |       |     
@@ -137,13 +138,12 @@ a.   |   b.   |   c.  |    d
 --------------------------
 a.   |   b.   |   c.  |    d
 
+```
 
 
 
-
-Zadanie 1d 
-Narysuj graf zależności Diekerta (w postaci zminimalizowanej - bez krawędzi "przechodnich") dla słowa w.
-
+## Zadanie 1d 
+### Narysuj graf zależności Diekerta (w postaci zminimalizowanej - bez krawędzi "przechodnich") dla słowa w.
 w = b a a d cb
 
 
