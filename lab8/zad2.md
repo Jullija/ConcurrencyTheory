@@ -1,4 +1,4 @@
-Zadanie 2
+# Zadanie 2
 
 Dany jest zbiór akcji:
 
@@ -16,22 +16,24 @@ Dany jest zbiór akcji:
 
 
 
-Zadanie 2a
- W alfabecie A = { a, b, c, d, e, f} określ relacje zależności i niezależności.
+## Zadanie 2a
+### W alfabecie A = { a, b, c, d, e, f} określ relacje zależności i niezależności.
 
 
 I: (niezależne): {(a, d), (d, a), (b, e), (e, b), (c, d), (d, c), (c, f), (f, c)}.   (Np.: a zalezy od f, bo, z <- y+z+v = x + v)
+
 D: (zależność): uzupełnienie
 
 
 
 
 
-Zadanie 2b 
-Wyznacz postać normalną Foaty śladu [u] dla u=a c d c f b b e
+## Zadanie 2b 
+### Wyznacz postać normalną Foaty śladu [u] dla u=a c d c f b b e
 
-Zdejmujemy śnieżynki wierzchnie zależne od zdejmowanej litery
+Zdejmujemy śnieżynki wierzchnie zależne od zdejmowanej litery.
 
+```
 
  a   |   *    |       |        |      |    
  *   |   *    |   *   |        |  *   |   *
@@ -42,13 +44,13 @@ Zdejmujemy śnieżynki wierzchnie zależne od zdejmowanej litery
  *   |   b    |   *   |    *   |  e   |   *
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
+```
 
 
 
 
-
-Pierwszy krok: (a d)
-
+**Pierwszy krok: (a d)**
+```
      |        |       |        |      |    
  *   |   *    |       |        |      |    
  *   |   *    |   c   |    d   |  *   |   *
@@ -70,16 +72,16 @@ a.   |   b.   |   c.  |    d   |   e  |   f
  *   |   b    |   *   |    *   |  e   |   *
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
+```
 
 
 
 
 
-
-Drugi krok: (a d) (c f)
-
+**Drugi krok: (a d) (c f)**
 
 
+```
      |        |       |        |      |    
      |        |       |        |      |    
  *   |        |       |        |      |    
@@ -102,13 +104,13 @@ a.   |   b.   |   c.  |    d   |   e  |   f
  *   |   b    |   *   |    *   |  e   |   *
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
+```
 
 
 
+**Trzeci krok: (a d) (c f) (c)**
 
-Trzeci krok: (a d) (c f) (c)
-
-
+```
      |        |       |        |      |    
      |        |       |        |      |    
      |        |       |        |      |    
@@ -118,12 +120,12 @@ Trzeci krok: (a d) (c f) (c)
  *   |   b    |   *   |    *   |  e   |   *
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
+```
 
 
+**Czwarty krok: (a d) (c f) (c) (b e)**
 
-Czwarty krok: (a d) (c f) (c) (b e)
-
-
+```
 
      |        |       |        |      |    
      |        |       |        |      |    
@@ -146,12 +148,12 @@ a.   |   b.   |   c.  |    d   |   e  |   f
  *   |   b    |   *   |    *   |      |   *
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
+```
 
 
+**Piąty krok: (a d) (c f) (c) (b e) (b)**
 
-Piaty krok: (a d) (c f) (c) (b e) (b)
-
-
+```
      |        |       |        |      |    
      |        |       |        |      |    
      |        |       |        |      |    
@@ -162,12 +164,12 @@ Piaty krok: (a d) (c f) (c) (b e) (b)
 --------------------------------------------
 a.   |   b.   |   c.  |    d   |   e  |   f
 
+```
 
 
 
-
-Zadanie 2c 
-Narysuj graf zależności Diekerta (w postaci zminimalizowanej - bez krawędzi "przechodnich") dla słowa u.
+## Zadanie 2c 
+### Narysuj graf zależności Diekerta (w postaci zminimalizowanej - bez krawędzi "przechodnich") dla słowa u.
 
 
 
