@@ -1,3 +1,5 @@
+# Zad 1
+
 Rozważmy zbiór zmiennych („bazę danych”) {x, y, z} i następujący zbiór akcji („transakcji”) modyfikujących wartości tych zmiennych:
 
 · (a) x := x + y
