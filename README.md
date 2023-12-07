@@ -16,3 +16,6 @@ Concurrency Theory course on AGH UST
 [Lab7](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab7) - [Node.js philosophers](https://home.agh.edu.pl/~kzajac/dydakt/tw/lab7/)
 
 [Lab8](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab8) - Theory of traces
+
+[Lab9](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab9) - [Petri net](https://home.agh.edu.pl/~kzajac/dydakt/tw/petri/)
+
