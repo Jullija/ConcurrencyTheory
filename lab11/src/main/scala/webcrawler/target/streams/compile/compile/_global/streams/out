@@ -1,0 +1,16 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:5:12: object htmlcleaner is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.htmlcleaner.TagNode[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:10:14: object htmlcleaner is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0m  import org.htmlcleaner.HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:14:26: not found: type TagNode[0m
+[0m[[0m[31merror[0m] [0m[0m  def depthWalk(element: TagNode, depth: Int): Future[String] = Future{[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:17:26: not found: type HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m      val rootNode = new HtmlCleaner().clean(new URL(url))[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:30:22: not found: type HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m  val rootNode = new HtmlCleaner().clean(new URL(url))[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m

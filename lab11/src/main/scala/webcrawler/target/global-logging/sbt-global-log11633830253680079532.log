@@ -1,0 +1,27 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(254df1a5-6b75-4138-a8e7-caacdc10260d), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/target/scala-2.12/classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mNon-compiled module 'compiler-bridge_2.12' for Scala 2.12.17. Compiling...[0m
+[0m[[0m[0minfo[0m] [0m[0m  Compilation completed in 17.565s.[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:5:12: object htmlcleaner is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.htmlcleaner.TagNode[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:10:14: object htmlcleaner is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0m  import org.htmlcleaner.HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:14:26: not found: type TagNode[0m
+[0m[[0m[31merror[0m] [0m[0m  def depthWalk(element: TagNode, depth: Int): Future[String] = Future{[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:17:26: not found: type HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m      val rootNode = new HtmlCleaner().clean(new URL(url))[0m
+[0m[[0m[31merror[0m] [0m[0m                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/juliasmerdel/Documents/semestr5/ConcurrencyTheory/lab11/src/main/scala/webcrawler/WebCrawler.scala:30:22: not found: type HtmlCleaner[0m
+[0m[[0m[31merror[0m] [0m[0m  val rootNode = new HtmlCleaner().clean(new URL(url))[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 20 s, completed Jan 11, 2024, 5:43:09 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m
