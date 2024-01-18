@@ -19,3 +19,7 @@ Concurrency Theory course on AGH UST
 
 [Lab9](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab9) - [Petri net](https://home.agh.edu.pl/~kzajac/dydakt/tw/petri/)
 
+[Lab10](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab10) - CSP
+
+[Lab11](https://github.com/Jullija/ConcurrencyTheory/tree/main/lab11) - Future scala
+
